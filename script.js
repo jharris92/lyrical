@@ -60,3 +60,32 @@ $(document).ready(function () {
                 }
             }
         }
+
+        if (!foundSong) {
+            
+            clickThis.css('border', '5px solid purple');
+            
+            
+            addSongArr.push({
+                id: clickThis.attr('data-number'),
+                title: clickThis.text(),
+                preview: clickThis.attr('data-preview'),
+                artist: artistName
+            });
+            
+        } else {
+            clickThis.css('border', '5px solid black');
+            
+            newSongArr = addSongArr.filter(function (val) {
+                
+                return val.title !== foundSongName;
+            });
+           
+            localStorage.setItem('playlist', JSON.stringify(newSongArr));
+
+            addSongArr = newSongArr;
+
+            foundSong = false;
+        }
+        
+    }
