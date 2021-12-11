@@ -89,3 +89,36 @@ $(document).ready(function () {
         }
         
     }
+    function addToPlaylist() {
+        $('#remove').show();
+        $('#songRow').children().css('border', '5px solid black');
+        //this function stops music so set var to not playing i.e. false
+        isPlaying = false;
+        //save playlist array to local storage;
+        localStorage.setItem('playlist', JSON.stringify(addSongArr));
+        //add playlist array to playlist div
+        var playlistEl = $('#playlist');
+        addSongArr.forEach(function (val) {
+
+            
+            var div = $('<div>');
+            var preview = val.preview
+            div.attr('id', 'playlistItem');
+            div.attr('data-title', val.title);
+            div.attr('data-artist', val.artist);
+            div.attr('data-play', 'https://img.icons8.com/flat_round/24/000000/play--v1.png');
+            div.attr('data-pause', 'https://img.icons8.com/flat_round/24/000000/pause--v1.png')
+            div.attr('data-delete', 'https://img.icons8.com/plasticine/100/000000/filled-trash.png')
+            div.html(val.title + `<span id='songBtn' style='float: right;'>
+        <img src='https://img.icons8.com/flat_round/24/000000/play--v1.png' /></span>`);
+
+            
+            var audioElement = $("<audio>");
+
+            audioElement.attr("src", preview);
+            div.append(audioElement);
+            playlistEl.append(div);
+
+        })
+        
+    }
