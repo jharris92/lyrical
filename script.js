@@ -44,3 +44,19 @@ $(document).ready(function () {
             }
         })
     })
+
+    function selectToggle(compareSong) {
+
+        $("#songLyrix").html('');
+       
+        getLyrix(compareSong, artistName);
+      
+        if (addSongArr.length > 0) {
+            for (var i = 0; i < addSongArr.length; i++) {
+                
+                if (addSongArr[i].title === compareSong) {
+                    foundSongName = addSongArr[i].title;
+                    foundSong = true;
+                }
+            }
+        }
