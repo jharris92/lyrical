@@ -122,3 +122,12 @@ $(document).ready(function () {
         })
         
     }
+
+    function initPlaylist() {
+        if (addSongArr.length > 0) {
+            fromLocal = true;
+            addToPlaylist();
+        }else{
+            $('#playlist').hide();
+        }
+    }
