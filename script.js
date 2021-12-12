@@ -178,4 +178,45 @@ $(document).ready(function () {
             $('#playlist').append(h1);
             $('#playlist').append(hr);
             addToPlaylist();
-    }
+    })
+
+    $('#clear').on('click', function (e) {
+        beenCleared = true;
+        $('#songRow').empty();
+        $('#clear').hide();
+        $('#add').hide();
+    })
+
+    $('#remove').on('click', function () {
+        console.log("clear button hit");
+        confirmation = confirm("Confirm to Delete");
+        console.log(confirmation);
+        if(confirmation === false){
+            return;
+        };
+
+        beenCleared = true;
+        $('#playlist').hide();
+        $('#remove').hide();
+        $('#lyrix').hide();
+        $('#songRow').children().css('border', '5px solid black');
+        $('#songLyrix').empty();
+        localStorage.setItem('playlist', []);
+        addSongArr = [];
+        newSongArr = [];
+        var playlistItems = document.querySelectorAll('#playlistItem');
+        var playlistItemsArr = [].slice.call(playlistItems);
+        playlistItemsArr.forEach(function (val) {
+            val.remove();
+        })
+    })
+
+    $(document).on('click', '#songSpot', function (e) {
+        var clickedSong = e.target.innerText;
+        clickThis = $(this);
+        selectToggle(clickedSong);
+    })
+
+    initPlaylist();
+
+})
