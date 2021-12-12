@@ -158,6 +158,24 @@ $(document).ready(function () {
                 var imgSrcEl = $(this)[0].previousSibling.children[0];
                 imgSrcEl.setAttribute('src', playBtnData);     
             });
+            } else {
+                playMe.pause();
+                isPlaying = false;
+                var playBtnData = thisEl.attr('data-play');
+                var imgEl = thisEl.children()[0].children[0];
+                imgEl.setAttribute('src', playBtnData);
             }
-        }
+        })
+
+        $('#add').on('click', function (e) {
+            beenCleared = true;
+            $('#playlist').show();
+            $('#remove').show();
+            $('#playlist').empty();
+            var h1 = $('<h2>');
+            h1.text('SnapTrax Repo');
+            var hr = $('<hr>');
+            $('#playlist').append(h1);
+            $('#playlist').append(hr);
+            addToPlaylist();
     }
