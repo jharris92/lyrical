@@ -131,3 +131,33 @@ $(document).ready(function () {
             $('#playlist').hide();
         }
     }
+
+    $(document).on('click', '#playlistenItem', function (e) {
+        var playMe = $(this)[0].childNodes[2];
+        var thisEl = $(this);
+
+        if (!isPlaying) {
+            playMe.play();
+            getLyrix(thisEl[0].getAttribute('data-title'), thisEl[0].getAttribute('data-artist'))
+            var parentDiv;
+            isPlaying = true;
+            if (beenCleared) {
+                imgDataElNum = 2;
+            } else {
+                imgDataElNum = 5;
+            }
+            parentDiv = $(this).parent()[0].childNodes[imgDataElNum];
+            var pauseBtnData = parentDiv.getAttribute('data-pause');
+            var pauseLocale = $(this)[0].childNodes[1].childNodes[1];
+            pauseLocale.setAttribute('src', pauseBtnData);
+
+            playMe.addEventListener('ended', function() {
+                isPlaying = false;
+                var parentDiv = $(this)[0].parentNode; 
+                var playBtnData = parentDiv.getAttribute('data-play');
+                var imgSrcEl = $(this)[0].previousSibling.children[0];
+                imgSrcEl.setAttribute('src', playBtnData);     
+            });
+            }
+        }
+    }
