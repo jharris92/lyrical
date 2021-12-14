@@ -256,3 +256,39 @@ body{
         margin-left:-11px;
     }
 }
+
+#songSpot{
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+
+#playlistItem {
+    padding: 10px;
+    margin: 5px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+#album{
+    margin-top: 8px;
+}
+
+#songTitle {
+    position: absolute;
+    left:0;
+    bottom: 0px;
+    font-size: 12px;
+    font-weight:bolder;
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    padding:7px;
+    width:100%;
+    
+
+}

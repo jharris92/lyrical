@@ -173,7 +173,7 @@ $(document).ready(function () {
             $('#remove').show();
             $('#playlist').empty();
             var h1 = $('<h2>');
-            h1.text('SnapTrax Repo');
+            h1.text('Lyrical playlist');
             var hr = $('<hr>');
             $('#playlist').append(h1);
             $('#playlist').append(hr);
